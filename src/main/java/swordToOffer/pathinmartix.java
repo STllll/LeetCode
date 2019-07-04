@@ -3,7 +3,7 @@ package swordToOffer;
 public class pathinmartix {
     public static void main(String[] args){
             char[] matrix =new char[]{'a','b','c','e','s','f','c','s','a','d','e','e'};
-            System.out.println(hashPath(matrix,3,4,new char[]{'a','b','c','b'}));  //'b','c','c','e','d'
+            System.out.println(hashPath(matrix,3,4,new char[]{'a','b','c','c','e','d'}));  //'b','c','c','e','d'
     }
 
     public static boolean hashPath(char[] matrix, int rows, int cols, char[] str) {
@@ -15,7 +15,9 @@ public class pathinmartix {
                 chars[i][j] = matrix[index++];
             }
         }
+
         boolean result = false;
+        ko:
         for(int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if(chars[i][j] == str[0]){
@@ -23,7 +25,7 @@ public class pathinmartix {
                     result = util(chars, str, 1, i, j,visited);
                     visited[i][j] = 0;
                 }
-                if(result)  break;
+                if(result)  break ko;
             }
         }
         return result;
@@ -34,7 +36,7 @@ public class pathinmartix {
     * */
     public static boolean util(char[][] chars, char[] str, int index,int row, int col, int[][] visited) {
                       boolean result = false;
-                      if(index == str.length - 1) result = true;
+                      if(index == str.length ) result = true;
                       else {
                           if (row - 1 >= 0 && str[index] == chars[row - 1][col] ) {   //向上走
                               visited[row - 1][col] = 1;
