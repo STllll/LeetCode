@@ -3,7 +3,7 @@ package swordToOffer;
 public class pathinmartix {
     public static void main(String[] args){
             char[] matrix =new char[]{'a','b','c','e','s','f','c','s','a','d','e','e'};
-            System.out.println(hashPath(matrix,3,4,new char[]{'a','b','c','b'}));  //'b','c','c','e','d'  . 'a','b','c','c','e','d'
+            System.out.println(hashPath(matrix,3,4,new char[]{'a','b','c','c','e','d'}));  //'b','c','c','e','d'
     }
 
     public static boolean hashPath(char[] matrix, int rows, int cols, char[] str) {
@@ -38,24 +38,24 @@ public class pathinmartix {
                       boolean result = false;
                       if(index == str.length ) result = true;
                       else {
-                          if (row - 1 >= 0 && str[index] == chars[row - 1][col]&& visited[row -1][col ] != 1) {   //向上走
+                          if (row - 1 >= 0 && str[index] == chars[row - 1][col] ) {   //向上走
                               visited[row - 1][col] = 1;
                               result = util(chars, str, index + 1, row - 1, col, visited);
                               visited[row - 1][col] = 0;
                           }
-                          if (row + 1 <= chars.length - 1 && str[index] == chars[row + 1][col] && !result && visited[row + 1][col ] != 1) { // 向下走
+                          if (row + 1 <= chars.length - 1 && str[index] == chars[row + 1][col] && !result) { // 向下走
                               visited[row + 1][col] = 1;
                               result = util(chars, str, index + 1, row + 1, col, visited);
                               visited[row + 1][col] = 0;
                           }
-                          if(col - 1 >= 0 && str[index] == chars[row][col - 1] && !result && visited[row][col -1] != 1) {   // 往左走
+                          if(col - 1 >= 0 && str[index] == chars[row][col - 1] && !result) {   // 往左走
                               visited[row ][col - 1] = 1;
-                              result = util(chars, str, index + 1, row + 1, col, visited);
+                              result = util(chars, str, index + 1, row , col - 1, visited);
                               visited[row ][col - 1] = 0;
                           }
-                          if(col +1  <= chars[0].length - 1 && str[index] == chars[row][col + 1] && !result && visited[row][col + 1] != 1) {   // 往右走
+                          if(col +1  <= chars[0].length - 1 && str[index] == chars[row][col + 1] && !result) {   // 往右走
                               visited[row ][col+ 1] = 1;
-                              result = util(chars, str, index + 1, row , col + 1, visited );
+                              result = util(chars, str, index + 1, row , col + 1, visited);
                               visited[row ][col+ 1] = 0;
                           }
                       }
