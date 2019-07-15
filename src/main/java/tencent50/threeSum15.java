@@ -18,10 +18,13 @@ public class threeSum15 {
               for(int a : nums) list.add(a);
         Collections.sort(list);
         for(int i = one; i < nums.length - 2; i++) {
+            if(list.get(i) > 0) break;
             List<Integer> temp = new ArrayList<>();
             two = i + 1;
             while (two < nums.length - 1) {
+                if(list.get(i) + list.get(two) + list.get(nums.length - 1) < 0) continue;
                 for (int j = two + 1; j < nums.length; j++) {
+                    if(list.get(j) < 0) break;
                     int sum = list.get(i) + list.get(two) + list.get(j);
                     if (sum == 0) {
                         temp.add(list.get(i));
