@@ -26,18 +26,16 @@ public class threeSum15 {
                     two++;
                     continue;
                 }
-                for (int j = two + 1; j < nums.length; j++) {
-                    if(list.get(j) < 0) continue;
-                    int sum = list.get(i) + list.get(two) + list.get(j);
-                    if (sum == 0) {
+                int sum = list.get(i) + list.get(two) ;
+                int target = 0 - sum;
+                if(list.contains(target) && target >= list.get(two)){
                         temp.add(list.get(i));
                         temp.add(list.get(two));
-                        temp.add(list.get(j));
+                        temp.add(sum);
                         if(!result.contains(temp))
                         result.add(new ArrayList<>(temp));
                         temp.clear();
                     }
-                }
                 two++;
             }
         }
