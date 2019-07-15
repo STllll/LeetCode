@@ -6,7 +6,7 @@ import java.util.List;
 
 public class threeSum15 {
     public static void main(String[] args){
-        int[] nums = new int[]{-1,0,1,2,-1,-4};
+        int[] nums = new int[]{-1,-2,-3,4,1,3,0,3,-2,1,-2,2,-1,1,-5,4,-3};
         System.out.println(threeSum(nums));
     }
 
@@ -22,9 +22,12 @@ public class threeSum15 {
             List<Integer> temp = new ArrayList<>();
             two = i + 1;
             while (two < nums.length - 1) {
-                if(list.get(i) + list.get(two) + list.get(nums.length - 1) < 0) continue;
+                if(list.get(i) + list.get(two) + list.get(nums.length - 1) < 0) {
+                    two++;
+                    continue;
+                }
                 for (int j = two + 1; j < nums.length; j++) {
-                    if(list.get(j) < 0) break;
+                    if(list.get(j) < 0) continue;
                     int sum = list.get(i) + list.get(two) + list.get(j);
                     if (sum == 0) {
                         temp.add(list.get(i));
