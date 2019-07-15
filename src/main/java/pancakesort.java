@@ -3,7 +3,7 @@ import java.util.List;
 
 public class pancakesort {
     public static void main(String[] args){
-              int[] number = new int[]{3,2,4,1};
+              int[] number = new int[]{10,5,1,6,3,8,2,4,7,9};
               System.out.println(pancake(number));
     }
 
