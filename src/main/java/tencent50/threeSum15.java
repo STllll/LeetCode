@@ -31,7 +31,7 @@ public class threeSum15 {
                 if(list.contains(target) && target >= list.get(two)){
                         temp.add(list.get(i));
                         temp.add(list.get(two));
-                        temp.add(sum);
+                        temp.add(-sum);
                         if(!result.contains(temp))
                         result.add(new ArrayList<>(temp));
                         temp.clear();
