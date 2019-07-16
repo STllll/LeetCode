@@ -6,7 +6,7 @@ import java.util.List;
 
 public class threeSum15 {
     public static void main(String[] args){
-        int[] nums = new int[]{1,2,-2,-1}; //-1,-2,-3,4,1,3,0,3,-2,1,-2,2,-1,1,-5,4,-3
+        int[] nums = new int[]{0,0,0}; //
         System.out.println(threeSum(nums));
     }
 
@@ -18,7 +18,7 @@ public class threeSum15 {
               for(int a : nums) list.add(a);
         Collections.sort(list);
         for(int i = one; i < nums.length - 2; i++) {
-            if(list.get(i) >= 0) break;
+            if(list.get(i) > 0) break;
             List<Integer> temp = new ArrayList<>();
             two = i + 1;
             while (two < nums.length - 1) {
