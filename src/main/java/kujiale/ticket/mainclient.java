@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class mainclient {
     private  static int ticketMAX = 50;
     public static void main(String[] args) throws IOException {
-        int ticket = 54;
+        int ticket = 9;
         Scanner sc = new Scanner(System.in);
         buyImpl buy = new buyImpl();
         refundImpl refund = new refundImpl();
